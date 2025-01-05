@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block base %}
+<div class="container">
+    <ul class="movie_list">
+        {% for movie in movies_details %}
+            <li class="movie">
+                <img class="movie_cover" src="{{ movie.cover }}" alt="Capa do filme">
+                <h3>{{ movie.title }}</h3>
+                <h5>Director: {{ movie.director }}</h5>
+                <div class="tags_container">
+                    <span class="movie_tag">{{ movie.genre }}</span>
+                    <span class="movie_tag">{{ movie.subgenre }}</span>
+                </div>
+                <a class="more_button" href="{{url_for('main.movie_details', _id=movie._id)}}">Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block base %}
+<div class="movie_container">
+    <div class="container">
+        <div class="movie_img">
+            <img src="{{movie.cover}}" alt="Cover of the movie {{movie.title}}">
+        </div>
+        <div class="movie_details">
+            <h1>{{movie.title}}</h1>
+            <h3>Directed by: {{movie.director}}</h3>
+            <div class="tags_container">
+                <span class="movie_tag">{{ movie.genre }}</span>
+                <span class="movie_tag">{{ movie.subgenre }}</span>
+            </div>
+            <p>{{movie.description}}</p>
+            <div class="movie-rating">
+                <form action="{{ url_for('main.rate_movie', _id=movie._id) }}" method="POST">
+                    <div class="stars">
+                        {% for star in range(1, 6) %}
+                            <button type="submit" name="rating" value="{{ star }}" style="background: none; border: none; cursor: pointer;">
+                                <img 
+                                    src="{{ url_for('static', filename='images/star_' ~ ('active.svg' if star <= active_stars else 'inactive.svg')) }}" 
+                                    alt="Star {{ star }}" 
+                                >
+                            </button>
+                        {% endfor %}
+                    </div>
+                </form>
+                <p class="average-rating">Average Rating: {{ active_stars }} / 5 - {{ num_ratings }} ratings.</p>
+                <a href="{{url_for('main.add_to_my_movies', _id=movie._id)}}">Add to my watched movies</a>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p  class="flash_message">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+                  
+        </div>
+    </div>
+</div>
+{% endblock %}

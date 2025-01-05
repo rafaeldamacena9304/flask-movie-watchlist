@@ -1,0 +1,146 @@
+.movie_list{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    list-style: none;
+    gap:48px;
+    margin-bottom:60px;
+}
+.movie_cover{
+    width:100%;
+    height:300px;
+    border-radius:6px;
+    object-fit: cover;
+}
+.movie{
+    background-color:#d6d6d6;
+    padding:12px;
+    border-radius:6px;
+
+    & h3{
+        color:#111;
+    }
+
+    & h5{
+        color:#333;
+        font-size:14px;
+        margin-bottom:8px;
+    }
+}
+.tags_container{
+    margin-bottom:8px;
+}
+.movie_tag{
+    color:white;
+    background-color:#374352;
+    border-radius:4px;
+    font-size:12px;
+    padding:4px;
+    display:inline-block;
+}
+.more_button{
+    text-decoration:none;
+    background-color:#e74c3c;
+    color:white;
+    padding:4px;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:4px;
+    font-size:18px;
+    font-weight:500;
+}
+
+#movieModal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:100%;
+    height:100%;
+    z-index:1;
+    background-color:rgba(0,0,0,0.9);
+    display:none;
+}
+#addMovieForm{
+    margin-top:80px;
+}
+.form{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color:#161f29;
+    width:fit-content;
+    margin:0 auto;
+    padding:24px;
+    border-radius:16px;
+    position:relative;
+
+    & h2{
+        color:#d6d6d6;
+        margin-bottom:24px;
+    }
+
+    & input{
+        margin-bottom:10px;
+        width:300px;
+        height:40px;
+        padding-left:36px;
+        border:none;
+        border-radius:8px;
+        font-size:18px;
+        background-color:#2e3f53;
+        color:white;
+    }
+    & textarea{
+        width:300px;
+        height:60px;
+        resize:none;
+        margin-bottom:16px;
+        padding-left:36px;
+        border:none;
+        border-radius:8px;
+        font-size:18px;
+        padding-top:4px;
+        background-color:#2e3f53;
+        color:white;
+    }
+    & input:focus, textarea:focus{
+        outline:none;
+        border-bottom:4px solid #e74c3c;
+    }
+
+    & button{
+        background-color:#e74c3c;
+        color:white;
+        font-size:20px;
+        border:none;
+        width:100%;
+        border-radius:8px;
+        padding:8px 0;
+        font-weight:600;
+    }
+}
+.input_container{
+    position:relative;
+
+    & img {
+        position:absolute;
+        top:8px;
+        left:8px;
+    }
+}
+#closeMovieModal{
+    position:absolute;
+    top:16px;
+    right:16px;
+}
+#openMovieModal{
+    position:fixed;
+    bottom:16px;
+    right:16px;
+    width:72px;
+    height:72px;
+    z-index:2;
+}

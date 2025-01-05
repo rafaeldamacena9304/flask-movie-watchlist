@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block base %}
+<img id="openMovieModal" src="/static/images/add.svg" alt="Open Button">
+<div id="movieModal">
+    <form class="form" id="addMovieForm" action="{{url_for('main.add_movie')}}" method="POST">
+        <img id="closeMovieModal" src="/static/images/close.svg" alt="Close button">
+        <h2>Add movie</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="flash_message">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="input_container">
+            <img src="/static/images/url.svg" alt="Link icon">
+            <input required name="cover" type="text" placeholder="Cover url">
+        </div>
+        <div class="input_container">
+            <img src="/static/images/title.svg" alt="Title icon">
+            <input required name="title" type="text" placeholder="Name">
+        </div>
+        <div class="input_container">
+            <img src="/static/images/director.svg" alt="Director icon">
+            <input required name="director" type="text" placeholder="Director">
+        </div>
+        <div class="input_container">
+            <img src="/static/images/genre.svg" alt="Genre icon">
+            <input required name="genre" type="text" placeholder="Genre">
+        </div>
+        <div class="input_container">
+            <img src="/static/images/subgenre.svg" alt="Subgenre icon">
+            <input required name="subgenre" type="text" placeholder="Subgenre">
+        </div>
+        <div class="input_container">
+            <img src="/static/images/description.svg" alt="Descrption icon">
+            <textarea required name="description" placeholder="Description"></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% if movies|length > 0 %}
+    <ul class="movie_list">
+        {% for movie in movies %}
+            <li class="movie">
+                <img class="movie_cover" src="{{ movie.cover }}" alt="Capa do filme">
+                <h3>{{ movie.title }}</h3>
+                <h5>Director: {{ movie.director }}</h5>
+                <div class="tags_container">
+                    <span class="movie_tag">{{ movie.genre }}</span>
+                    <span class="movie_tag">{{ movie.subgenre }}</span>
+                </div>
+                <a class="more_button" href="{{url_for('main.movie_details', _id=movie._id)}}">Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>There's no movie yet. Add a new movie by clickin "+" button.</p>
+    {% endif %}
+</div>
+{% endblock %}
+</body>
+</html>

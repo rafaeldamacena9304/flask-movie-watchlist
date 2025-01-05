@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/movie_details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Watchlist</h1>
+            <nav class="nav">
+                <a class="nav_link {% if request.path == '/' %} active {% endif %}" href="{{url_for('main.index')}}">Home</a>
+                {% if 'current_user' in session %}
+                    <a class="nav_link {% if request.path.startswith('/my_movies') %} active {% endif %}" href="{{url_for('main.my_movies', username=session.get('current_user'))}}">My movies</a>
+                    <a class="nav_link {% if request.path == '/logout' %} active {% endif %}" href="{{url_for('main.logout')}}">Logout</a>
+                {% else %}
+                    <a class="nav_link {% if request.path == '/login' %} active {% endif %}" href="{{url_for('main.login')}}">Login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+{% block base %}
+{% endblock %}
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer_title">&copy; Movies Watchlist 2024 - All Rights Reserved</p>
+    </div>
+    <nav class="nav">
+        <a class="nav_link {% if request.path == '/' %} active {% endif %}" href="{{url_for('main.index')}}">Home</a>
+        {% if 'current_user' in session %}
+            <a class="nav_link {% if request.path.startswith('/my_movies') %} active {% endif %}" href="{{url_for('main.my_movies', username=session.get('current_user'))}}">My movies</a>
+            <a class="nav_link {% if request.path == '/logout' %} active {% endif %}" href="{{url_for('main.logout')}}">Logout</a>
+        {% else %}
+            <a class="nav_link {% if request.path == '/login' %} active {% endif %}" href="{{url_for('main.login')}}">Login</a>
+        {% endif %}
+    </nav>
+</footer>
+<script src="/static/js/render_form.js"></script>
+</body>
+</html>

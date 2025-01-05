@@ -1,0 +1,7 @@
+.register_phrase{
+    color:#ccc;
+
+    & a{
+        color:white
+    }
+}

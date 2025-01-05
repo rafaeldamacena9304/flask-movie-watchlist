@@ -1,0 +1,71 @@
+*{
+    font-family: 'Rethink Sans';
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+.container{
+    max-width:1024px;
+    width:100%;
+    margin:0 auto;
+}
+html{
+    height:100%;
+}
+
+body{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+}
+.header{
+    background-color:#161f29;
+    color:#EEE;
+    padding:8px 0;
+    margin-bottom:60px;
+}
+.header .container{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.nav{
+    display:flex;
+    align-items: center;
+}
+.nav_link{
+    color:#EEE;
+    text-decoration:none;
+}
+.nav_link:not(:last-child){
+    margin-right:24px;
+}
+.nav_link:hover{
+    border-bottom:1px solid #e74c3c;
+}
+.footer{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    text-align:center;
+    color:#EEE;
+    background-color:#161f29;
+    padding:8px 0;
+    margin-top:auto;
+}
+
+.active{
+    color:#e74c3c;
+    font-weight:bold;
+    border-bottom:2px solid #e74c3c;
+}
+
+.flash_message{
+    color:red;
+    margin-bottom:16px;
+}
+@media (max-width:768px){
+    .container{
+        width:90%;
+    }
+}
