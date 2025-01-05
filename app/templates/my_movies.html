@@ -15,6 +15,9 @@
             </li>
         {% endfor %}
     </ul>
+    {% if not movie in movies_details %}
+        <p>There's no movies in your list yet.</p>
+    {% endif %}
 </div>
 
 {% endblock %}
