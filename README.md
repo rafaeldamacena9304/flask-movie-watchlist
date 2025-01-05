@@ -4,7 +4,7 @@
 
 Este projeto é uma **aplicação web** construída com o framework **Flask** que permite aos usuários criar uma lista de filmes para assistir, adicionar filmes, avaliá-los e visualizar detalhes sobre cada um. A aplicação armazena todos os dados em um banco de dados **MongoDB** na **Nuvem**, o que a torna flexível e escalável.
 
-A ideia deste projeto foi criar uma plataforma simples, intuitiva e eficiente para os amantes de filmes que querem manter um controle de seus filmes favoritos, assistir avaliações de outros usuários e compartilhar suas próprias opiniões.
+A ideia deste projeto foi criar uma plataforma simples, intuitiva e eficiente para demonstrar aqui meus conhecimentos do framework.
 
 ## Funcionalidades 🚀
 
