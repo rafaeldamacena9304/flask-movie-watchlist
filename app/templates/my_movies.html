@@ -15,7 +15,7 @@
             </li>
         {% endfor %}
     </ul>
-    {% if not movie in movies_details %}
+    {% if movies_details|length == 0 %}
         <p>There's no movies in your list yet.</p>
     {% endif %}
 </div>
